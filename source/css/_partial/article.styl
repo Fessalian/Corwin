@@ -1,0 +1,397 @@
+.article-single
+  background-color: color-main-background
+  padding: 30px 30px 20px
+
+.article-inner
+  overflow: hidden
+
+.article-meta
+  clearfix()
+  height: line-height
+  line-height: line-height
+  padding-top: 10px
+  overflow: hidden
+  .category, .date, .author
+    margin-right: 20px
+  .read-more
+    float: right
+  p
+    color: #bbb
+    font-size: 0.8em
+    float: left
+    text-transform: uppercase
+.article-row
+  clearfix();
+  border-bottom: 1px solid #eee
+  box-sizing: border-box
+  float: left
+  padding: 30px 0px 0px 30px
+  position: relative
+  width: 100%
+.article-summary
+  margin-bottom: 30px
+  width: 100%
+  a
+    color: color-link
+    text-decoration: none
+  .article-summary-inner
+    background-color: color-main-background
+    border-radius: 3px
+    margin-right: 30px
+    padding: 30px
+    .thumbnail
+      display: block
+      height: 100%
+      margin-bottom: 1em
+      overflow: hidden
+      position: relative
+      width: 100%
+      .thumbnail-image
+        display: block
+        background-size: cover
+        background-position: center
+        height: 100%
+        opacity: 1
+        transition: opacity 0.3s ease-in
+        width: 100%
+      .thumbnail-none
+        background-size: 100% 100%
+        background-image: url(thumbnail-default)
+        height: 100%
+        width: 100%
+    .article-title
+      font-size: 22px
+      font-weight: 400
+      margin-bottom: 10px
+      line-height: 1.5em
+      word-wrap: break-word
+      a
+        color: #444
+        transition: color 0.3s ease-in
+    .article-excerpt
+      color: rgb(170, 170, 170)
+      font-size: 16px
+      line-height: line-height
+      overflow: hidden
+      position: relative
+  &:hover
+    .thumbnail
+      .thumbnail-image
+        opacity: 0.7
+    .article-title
+      a
+        color: color-link
+
+.article-category
+  color: #ccc
+  float: left
+  margin-left: 8px
+  line-height: 1em
+  text-shadow: 0 1px #fff
+  &:before
+    font-family: font-icon
+    content: "\2022"
+
+.article-title
+  color: color-default
+  font-size: 38px
+  margin-bottom: 10px
+  line-height: line-height-title
+  letter-spacing: -1px
+  text-decoration: none
+  transition: color 0.2s
+  a&:hover
+    color: color-link
+
+.article-byline
+  margin-bottom: 10px
+  a
+    @extend $block-caption
+
+.article-entry
+  @extend $base-style
+  clearfix()
+  color: color-default
+  font-size: font-size-article
+  font-weight: 300
+  line-height: line-height + 0.4
+  p, table
+    margin: line-height 0
+    text-indent: 20px
+  pre
+    text-indent: 0
+  h1, h2, h3, h4, h5, h6
+    font-weight: 600
+    margin: line-height-title 0
+    line-height: line-height-title
+  a
+    color: color-link
+    text-decoration: none
+    &:hover
+      text-decoration: underline
+  ul, ol, dl
+    margin-top: line-height
+    margin-bottom: line-height
+  img, video
+    border-radius: 3px
+    display: block
+    height: auto
+    margin: auto
+    max-width: 100%
+    &.smiles
+      display: inline-block
+      position: relative
+      top: 5px
+    &.full-size
+      background-size: cover
+      width: 100%
+  iframe
+    border: none
+  table
+    border-collapse: collapse
+    border-spacing: 0
+    width: 100%
+  th
+    border-bottom: 3px solid color-border
+    font-weight: 600
+    padding-bottom: 0.5em
+  td
+    border-bottom: 1px solid color-border
+    padding: 10px 0
+  blockquote
+    font-family: font-serif
+    font-size: 1.4em
+    margin: line-height 20px
+    text-align: center
+    footer
+      font-size: font-size
+      font-family: font-sans
+      margin: line-height 0
+      cite
+        &:before
+          content: "—"
+          padding: 0 0.5em
+  .pullquote
+    margin: 0
+    text-align: left
+    width: 45%
+    &.left
+      margin-left: 0.5em
+      margin-right: 1em
+    &.right
+      margin-right: 0.5em
+      margin-left: 1em
+  .caption
+    color: color-grey
+    display: block
+    font-size: 0.9em
+    margin-top: 0.5em
+    position: relative
+    text-align: center
+  // http://webdesignerwall.com/tutorials/css-elastic-videos
+  .video-container
+    height: 0
+    overflow: hidden
+    padding-top: (9 / 16 * 100)% // 16:9 ratio
+    position: relative
+    iframe, object, embed
+      height: 100%
+      margin-top: 0
+      left: 0
+      position: absolute
+      top: 0
+      width: 100%
+
+.article-more-link a
+  border-radius: 15px
+  background: color-background
+  color: color-grey
+  display: inline-block
+  line-height: 1em
+  padding: 6px 15px
+  text-shadow: 0 1px #fff
+  text-decoration: none
+  &:hover
+    background: color-link
+    color: #fff
+    text-decoration: none
+    text-shadow: 0 1px darken(color-link, 20%)
+
+.article-footer
+  clearfix()
+  border-top: 1px solid color-border
+  font-size: font-size
+  line-height: line-height
+  padding-top: line-height
+  a
+    color: color-grey
+    text-decoration: none
+    &:hover
+      color: color-default
+
+.article-tag-list-item
+  float: left
+  margin-right: 10px
+
+.article-tag-list-link
+  &:before
+    content: "#"
+
+.article-comment-link
+  float: right
+  &:before
+    content: "\f075"
+    font-family: font-icon
+    padding-right: 8px
+
+.article-share-link
+  cursor: pointer
+  float: right
+  margin-left: 20px
+  &:before
+    content: "\f064"
+    font-family: font-icon
+    padding-right: 6px
+
+.article-share-box
+  background: #fff
+  border-radius: 3px
+  box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.2)
+  display: none
+  margin-left: -145px
+  overflow: hidden
+  position: absolute
+  z-index: 1
+  &.on
+    display: block
+
+.article-share-input
+  background: none
+  border-radius: 3px 3px 0 0
+  border: 1px solid color-border
+  box-sizing: border-box
+  color: color-default
+  font: 14px font-sans
+  height: 36px
+  line-height: 36px
+  outline: none
+  padding: 0 15px
+  width: 100%
+
+.article-share-links
+  clearfix()
+  background: color-background
+
+$article-share-link
+  color: #999
+  display: block
+  float: left
+  height: 36px
+  line-height: 36px
+  position: relative
+  text-decoration: none
+  text-align: center
+  width: 50px
+  &:before
+    font-size: 20px
+    font-family: font-icon
+    absolute-center(@font-size)
+  &:hover
+    color: #fff
+
+.article-share-twitter
+  @extend $article-share-link
+  &:before
+    content: "\f099"
+    font-family: font-icon
+  &:hover
+    background: color-twitter
+    text-shadow: 0 1px darken(color-twitter, 20%)
+
+.article-share-facebook
+  @extend $article-share-link
+  &:before
+    content: "\f09a"
+    font-family: font-icon
+  &:hover
+    background: color-facebook
+    text-shadow: 0 1px darken(color-facebook, 20%)
+
+.article-share-pinterest
+  @extend $article-share-link
+  &:before
+    content: "\f0d2"
+    font-family: font-icon
+  &:hover
+    background: color-pinterest
+    text-shadow: 0 1px darken(color-pinterest, 20%)
+
+.article-share-google
+  @extend $article-share-link
+  &:before
+    content: "\f0d5"
+    font-family: font-icon
+  &:hover
+    background: color-google
+    text-shadow: 0 1px darken(color-google, 20%)
+
+.article-gallery
+  background: #000
+  position: relative
+
+.article-gallery-photos
+  position: relative
+  overflow: hidden
+
+.article-gallery-img
+  display: none
+  max-width: 100%
+  &:first-child
+    display: block
+  &.loaded
+    position: absolute
+    display: block
+  img
+    display: block
+    max-width: 100%
+    margin: 0 auto
+
+.author-block
+  border: 3px solid color-background
+  border-radius: 3px
+  padding: 20px
+  position:relative
+  vertical-align: top
+  &:before
+    content: ''
+    display: inline-block
+    border-left: 8px solid transparent
+    border-right: 8px solid transparent
+    border-bottom: 8px solid color-background
+    position: absolute
+    top: -8px
+    left: 13px
+  &:after
+    content: ''
+    display: inline-block
+    border-left: 6px solid transparent
+    border-right: 6px solid transparent
+    border-bottom: 6px solid color-main-background
+    position: absolute
+    top: -5px
+    left: 15px
+  > div
+    display: inline-block
+    vertical-align: top
+  .author-description
+    height: 100%
+    margin-left: 30px
+    span
+      font-size: 1.2em
+  .author-follow
+    float: right
+    li
+      display: inline-block
+  .icon
+    font-size: 18px
+    padding-right: 10px

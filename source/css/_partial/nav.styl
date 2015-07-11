@@ -1,0 +1,116 @@
+$nav-link
+  color: color-nav-foreground
+  display: block
+  float: left
+  padding: 20px 15px
+  text-shadow: 0 1px rgba(0, 0, 0, 0.2)
+  text-decoration: none
+  transition: 0.2s ease-in
+  &:hover
+    background: color-nav-hover-background
+    color: #fff
+
+.nav-container
+  clearfix()
+  background: color-nav-background
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05),
+              0 -1px 0 rgba(0,0,0,0.2),
+              inset 1px 0 0 rgba(0,0,0,0.2),
+              inset -1px 0 0 rgba(0,0,0,0.2)
+  padding: 0 15px
+  z-index: 1
+  .nav-icon
+    @extend $nav-link
+    cursor: pointer
+    font-family: font-icon
+    font-size: font-size
+    line-height: 20px
+    padding: 15px 14px
+    position: relative
+    text-align: center
+  #main-nav-toggle
+    border-bottom: 1px solid rgba(255,255,255,0.06)
+    box-sizing: border-box
+    display: none
+    text-align: right
+    width: 100%
+    &:before
+      font-family: font-icon
+      content: "\f0c9"
+  .nav-container-inner
+    clearfix()
+    #main-nav
+      float: left
+      .main-nav-list
+        float: left
+      .main-nav-list-item
+        float: left
+        position: relative
+        &.top-level-menu
+          & > a:after
+            content: "\f0d7" !important
+            display: inline-block
+            float: none
+            font-family: FontAwesome
+            font-size: 14px
+            margin-left: 6px
+            line-height: 1.2em
+            opacity: 0.5
+          &:hover
+            & > a
+              background: rgba(0,0,0,0.1)
+              color: #fff
+        .main-nav-list-link
+          @extend $nav-link
+          font-size: 16px
+          line-height: 20px
+          padding: 15px 14px
+          &.current
+            color: #fff
+        .main-nav-list-child
+          background: color-nav-background repeat
+          display: none
+          overflow: hidden
+          padding: 10px 0
+          position: absolute
+          top: 100%
+          width: main-nav-child-width
+          li
+            box-shadow: 0 1px 0 rgba(255,255,255,0.06)
+            &:last-child
+              box-shadow: none
+          li, li a
+            display: block
+            box-sizing: border-box
+            width: 100%
+    #sub-nav
+      float: right
+
+.search-form
+  box-sizing: border-box
+  height: 50px
+  overflow: hidden
+  padding: 14px 15px 16px
+  &:before
+    content: "\f002"
+    color: color-nav-foreground
+    font: normal normal normal 16px/1 FontAwesome
+    margin-right: 8px
+
+.search-form-input
+  border: none
+  background: none
+  color: color-nav-foreground
+  font: 16px font-sans
+  line-height: line-height
+  outline: none
+  transition: 0.2s ease-in
+  width: 100px
+  &:focus
+    width: 200px
+  &::-webkit-search-results-decoration
+  &::-webkit-search-cancel-button
+    -webkit-appearance: none
+
+.search-form-submit
+  display: none

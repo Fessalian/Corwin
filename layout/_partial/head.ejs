@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en" dir="ltr">
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <% if ( config.root ) { %>
+        <base href="<%- config.root %>">
+    <% } %>
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//google-analytics.com">
+    <link rel="dns-prefetch" href="//jquery.com">
+    <link rel="dns-prefetch" href="//gravatar.com">
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+
+    <meta name="referrer" content="never">
+    <meta http-equiv="Content-Language" content="en-En">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <%- partial( '_partial/keywords' ) %>
+    <%- partial( '_partial/title', {isHead: true} ) %>
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+    <%- open_graph({twitter_id: theme.twitter, google_plus: theme.google_plus, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
+    <% if ( theme.rss ) { %>
+        <link async rel="alternative" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml">
+    <% } %>
+    <%- partial( '_partial/favicons' ) %>
+    <% if ( config.author ) { %>
+        <meta name="author" content="<%= config.author %>">
+    <% } %>
+    <noscript>&lt;meta http-equiv="X-Frame-Options" content="DENY" /&gt;</noscript>
+    <meta name="robots" content="index,follow">
+
+    <%- css('css/style') %>
+
+    <% if ( theme.google_analytics ){ %>
+        <%- partial('google-analytics') %>
+    <% } %>
+
+    <% if (theme.logo){ %>
+        <style type="text/css">
+            .logo { background-image:url(<%= theme.logo %>); }
+        </style>
+    <% } %>
+
+    <link async href='//fonts.googleapis.com/css?family=Titillium+Web:300,400' rel='stylesheet' type='text/css'>
+    <link async href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    <link async rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>

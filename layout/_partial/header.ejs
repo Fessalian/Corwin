@@ -1,0 +1,31 @@
+<header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="<%- url_for() %>" class="logo"><%= theme.title %></a>
+                    </h1>
+                    <% if (theme.subtitle){ %>
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle"><%= theme.subtitle %></p>
+                        </h2>
+                    <% } %>
+                </div>
+                <% if ( theme.menu && theme.menu.position === 'top' ) { %>
+                    <div id="header-inner" class="nav-container">
+                        <a id="main-nav-toggle" class="nav-icon"></a>
+                        <div class="nav-container-inner">
+                            <%- partial('main-menu') %>
+                            <nav id="sub-nav">
+                                <div id="search-form-wrap">
+                                    <%- search_form({text: __('index.search')}) %>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                <% }; %>
+            </div>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,47 @@
+<% var title = page.title_header;
+if (page.archive){
+    title = isHead ? 'Archives' : __('index.archive');
+    title += ': ' + page.year;
+    if (page.month){
+         title += '/' + page.month;
+    };
+    if ( !isHead ) {
+        title = '<i class="icon fa fa-archive"></i>' + title;
+    };
+} else if (page.title) {
+    if ( !isHead ) {
+        title = '<em class="page-title-link" data-url="' + url_for(page.path) + '">' + ( page.title_header || page.title )+ '</em>';
+    };
+} else if (page.category){
+    if ( isHead ) {
+        title = 'Category: ' + page.category;
+    } else {
+        title = '<i class="icon fa fa-folder-open"></i>' + __('index.category') + '<em class="page-title-link">' + page.category + '</em>';
+    };
+} else if (page.tag){
+    if ( isHead ) {
+        title = 'Tag: ' + page.tag;
+    } else {
+        title = '<i class="icon fa fa-tag"></i>' + __('index.tag') + '<em>' + page.tag + '</em>';
+    };
+} else if (is_post()) {
+    title = list_categories(page.categories, {show_count: false, style: 'none', class: 'page-title', separator: '<i class="icon fa fa-angle-right"></i>'});
+    if ( !isHead && "" == title ) {
+        title = __('index.home');
+    };
+} else if (is_home()) {
+    if ( !isHead ) {
+        title = '<em class="page-title-link" data-url="home">' + __('index.home') + '</em>';
+    };
+} else {
+    if ( !isHead ) {
+        title = config.title;
+    };
+} %>
+
+<% if ( isHead ) { %>
+    <title><% if (title) { %><%= title %> | <% } %><%= config.title %></title>
+    <meta name="title" content="<% if (title){ %><%= ( page.title_header || page.title ) %> | <% } %><%= config.title %>">
+<% } else { %>
+    <h1 class="header"><% if (title){ %><%- title %><% } %></h1>
+<% } %>

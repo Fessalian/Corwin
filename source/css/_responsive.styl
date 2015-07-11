@@ -1,0 +1,188 @@
+/* ------------------------------------------------------------------------- *
+ *  Style Fix : > 960px
+/* ------------------------------------------------------------------------- */
+@media only screen and (min-width: 960px)
+  .nav-container-inner
+    display: block !important
+
+/* ------------------------------------------------------------------------- *
+ *  Toggle Sidebar s1 : 959px > 480px
+/* ------------------------------------------------------------------------- */
+@media only screen and (min-width: 480px) and (max-width: 959px)
+  #header
+    padding-bottom: sidebar-toggle-width
+    .nav-container-inner
+      display: block !important
+      #main-nav
+        .main-nav-more > ul
+          .main-nav-list-child
+            padding: 0px
+            position: relative
+      .search-form-input
+        &:focus
+          width: 100px
+  .main-body
+    margin-top: - sidebar-toggle-width
+  .main-body-inner
+    background-position: -290px 0 !important
+    padding-left: sidebar-toggle-width
+    #sidebar
+      clearfix()
+      background-color: #F0F0F0
+      height: 100%
+      margin-left: - sidebar-toggle-width
+      overflow: hidden
+      position: absolute
+      transition: width 0.2s ease-in 0.2s
+      width: sidebar-toggle-width
+      .sidebar-toggle
+        background: color-link
+        box-sizing: border-box
+        color: rgba(255,255,255,0.7)
+        display: block
+        height: sidebar-toggle-width
+        padding: 6px
+        text-align: center
+        .toggle
+          font-size: 38px
+          line-height: 38px
+          width: 38px
+          &:before
+            font-family: font-icon
+            content: '\f101'
+      .sidebar-top
+        background: none
+        border-bottom: 1px solid color-border
+        padding: 10px 30px
+        p, a, i
+          color: #666
+      #article-nav, .widgets-container, .sidebar-top
+        opacity: 0
+        transition: opacity 0.2s ease-in
+      &.expend
+        overflow-y: auto
+        transition: width 0.2s ease-in
+        width: sidebar-width
+        z-index: 2
+        .toggle
+          &:before
+            font-family: font-icon
+            content: '\f100'
+        #article-nav, .widgets-container, .sidebar-top
+          opacity: 1
+          transition: opacity 0.2s ease-in 0.2s
+        .sidebar-top
+          display: block
+          .social-links
+            .social-tooltip
+              &:after,
+              &:before
+                display: none
+
+  #main
+    .main-body-header,
+    .archive-year-wrap
+      padding: 12px 30px
+
+/* ------------------------------------------------------------------------- *
+ *  Mobile (Low Res) : 479px > 0 (320px)
+/* ------------------------------------------------------------------------- */
+@media only screen and (max-width: 479px)
+  .container
+    padding: 0px
+  #header
+    .logo-wrap
+      display: block
+      text-align: center
+      width: 100%
+      .logo
+        margin: 0 auto
+    .subtitle-wrap
+      display: none
+    .nav-container
+      padding: 0px
+      #main-nav-toggle
+        display: block
+      .nav-container-inner
+        display: none
+      #main-nav
+        display: block
+        float: none
+        .main-nav-list-item,
+        .main-nav-list-link
+          clearfix()
+          box-shadow: none
+          box-sizing: border-box
+          display: block
+          float: none
+          font-size: font-size
+        .main-nav-list-item
+          &.top-level-menu
+            & > a
+              position: relative
+              &:after
+                display: none
+            &:hover > a
+              background: none
+              color: color-nav-foreground
+            & > a:hover
+              background: color-nav-hover-background
+              color: #fff
+          .main-nav-list-child
+            background: none
+            display: block !important
+            padding: 0px
+            position: relative
+            width: 100%
+            .main-nav-list-link
+              padding-left: 30px
+        a
+          border-bottom: 1px solid rgba(255,255,255,0.06)
+      #sub-nav
+        float: none
+        .search-form
+          &:before
+            font-size: font-size
+        .search-form-input
+          font-size: font-size
+          width: 90%
+  .main-body-inner
+    background: none
+    padding: 0px
+  #main
+    float: none
+    .main-body-header,
+    .archive-year-wrap
+      padding: 13px 15px 12px;
+    .main-body-content
+      .article-single,
+      #comments
+        padding: 15px
+      #page-nav
+        box-sizing: border-box
+        padding-right: 15px
+  .article-row
+    border: none
+    padding: 0 0 0 15px
+  .article-summary
+    width: 100%
+    .article-summary-inner
+      margin: 15px 15px 15px 0
+  #sidebar
+    background: color-sidebar-background
+    float: none
+    margin: 0px
+    width: 100%
+    .sidebar-top,
+    .widget-wrap
+      padding: 15px
+    .widgets-container
+      padding-bottom: 15px
+  #footer
+    margin-top: 0px
+    #back-to-top
+      box-shadow: 0 1px 1px rgba(0,0,0,0.1), inset 0 1px 0 rgba(0,0,0,0.05);
+    .logo
+      margin: 0 auto
+    .credit
+      text-align: center

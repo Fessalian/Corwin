@@ -1,0 +1,24 @@
+<%- partial('_partial/head') %>
+    <body>
+        <div id="wrap">
+            <%- partial('_partial/header', null, {cache: !config.relative_link}) %>
+            <div class="container">
+                <div class="main-body container-inner">
+                    <div class="main-body-inner">
+                        <section id="main">
+                            <div class="main-body-header <% if ( page && page.title ) { %>  -white <% };%>">
+                                <%- partial('_partial/title', {isHead: false}) %>
+                            </div>
+                            <div class="main-body-content">
+                                <%- body %>
+                            </div>
+                        </section>
+                        <%- partial('_partial/sidebar') %>
+                    </div>
+                </div>
+            </div>
+            <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
+            <%- partial('_partial/after-footer') %>
+        </div>
+    </body>
+</html>

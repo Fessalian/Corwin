@@ -1,0 +1,27 @@
+<aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar">
+        <i class="toggle icon"></i>
+    </a>
+    <% if ( theme.menu && ( theme.menu.position === 'left' || !theme.menu.position ) ) { %>
+        <div class="sidebar-top">
+            <div id="search-form-wrap">
+                <%- search_form({text: __('index.search')}) %>
+            </div>
+        </div>
+        <% if ( theme.menu.position === 'left' ) { %>
+            <%- partial('main-menu') %>
+        <% }; %>
+    <% }; %>
+
+    <% if(is_post()) { %>
+        <%- partial('post/nav', {post: page}) %>
+    <% }; %>
+    <div class="widgets-container">
+        <% if (theme.widgets) {
+            theme.widgets.forEach(
+                function(widget){ %>
+                    <%- partial('_widget/' + widget) %>
+                <% }
+        )}; %>
+    </div>
+</aside>

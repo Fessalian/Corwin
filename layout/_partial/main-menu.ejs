@@ -1,0 +1,10 @@
+<ul id="main-nav">
+    <% for ( var i in theme.menu.links ) {
+        if( 'Categories' == i ) { %>
+            <%- list_categories({show_count: false, depth: 2, class: 'main-nav', style: 'list'}) %>
+        <% } else { %>
+            <li class="main-nav-list-item" >
+                <a class="main-nav-list-link" href="<%- url_for(theme.menu[i]) %>"><%= i %></a>
+            </li>
+    <% }}; %>
+</ul>

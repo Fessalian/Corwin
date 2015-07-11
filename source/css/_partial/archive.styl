@@ -1,0 +1,88 @@
+.archives-wrap
+  margin: block-margin 0
+
+.archives
+  clearfix()
+
+.archive-year-wrap
+  border-bottom: 1px solid color-border-light
+  color: color-default + #111
+  font-size: font-size + 2
+  padding: 18px 30px 17px
+
+.archive-year
+  @extend $block-caption
+  i
+    margin-right: 8px
+
+.archives
+  column-gap: 10px
+  @media mq-tablet
+    column-count: 2
+  @media mq-normal
+    column-count: 3
+
+.archive-article
+  avoid-column-break()
+
+.archive-article-inner
+  margin-bottom: 15px
+  padding: 10px
+
+.archive-article-title
+  color: color-default
+  font-weight: bold
+  line-height: line-height
+  text-decoration: none
+  transition: color 0.2s
+  &:hover
+    color: color-link
+
+.archive-article-footer
+  margin-top: 1em
+
+.archive-article-date
+  color: color-grey
+  display: block
+  font-size: 0.85em
+  margin-bottom: 0.5em
+  line-height: 1em
+  text-decoration: none
+
+#page-nav
+  clearfix()
+  color: color-grey
+  display: block
+  float: left
+  margin: 30px 0px 45px 0px
+  text-align: center
+  width: 100%
+  .pages
+    border: none!important
+    display: block
+    font-size: 17px
+    font-weight: 300
+    margin-bottom: 1em!important
+    &:before
+      content: "\f15c"
+      font-family: font-icon
+      margin-right: 6px
+  .page-number, .extend
+    color: color-link
+    display: inline
+    font-size: 16px
+    border-bottom: 3px solid color-border
+    border-top: 1px solid #f1f1f1
+    font-weight: 600
+    margin: 0 2px
+    overflow: hidden
+    padding: 7px 8px
+    position: relative
+    text-decoration: none
+    transition: 0.2s ease-in
+    &:hover, &:active, &.current
+      color: #444
+      border-bottom: 3px solid color-link
+      border-top: 1px solid #f1f1f1
+  .space
+    color: color-border

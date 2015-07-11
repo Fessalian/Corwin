@@ -1,0 +1,46 @@
+
+# Menu
+menu:
+  position: false          #top/left/false
+  links:
+    Home: /
+  # Delete this row if you don't want categories in your header nav bar
+    Categories:
+    About: /about/index.html
+
+# Thumbnail
+thumbnail: true
+
+recent_posts_count: 3
+excerpt_link: Read more ...
+
+keywords: web develpoment notices, web development hacks, web development interesting things, web development memo
+language: en
+
+# Sidebar
+social_links:
+  twitter:
+  facebook:
+  google-plus:
+  github:
+  weibo:
+  rss:
+widgets:
+- recent_posts
+- category
+- archive
+- tag
+# - tagcloud
+# - links
+
+# Links
+links:
+  Hexo: http://hexo.io
+
+# Don't Use Google APIs if you are in google-blocked areas
+use_google_apis: false
+
+# Miscellaneous
+google_analytics:
+fb_admins:
+fb_app_id:

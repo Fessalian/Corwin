@@ -1,0 +1,25 @@
+index:
+  home: 'домашняя'
+  search: 'Поиск'
+  archive: 'архив'
+  category: 'категория : '
+  uncategorized: 'некатегоризированно'
+  tag: 'тег : '
+nav:
+  current_page:
+    other: 'Страница %d '
+  total_page:
+    other: 'из %d'
+sidebar:
+  follow: 'follow'
+  newer: 'newer'
+  older: 'older'
+  recents: 'последние'
+  archives: 'архивы'
+  categories: 'категории'
+  links: 'ссылки'
+  tags: 'tags'
+  tag_cloud: 'tag cloud'
+article:
+  comments: 'Комментарии'
+  share: 'Поделиться'

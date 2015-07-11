@@ -1,0 +1,122 @@
+<%  var getContentOrExcerpt = function ( iContent, isExcerpt ) {
+        var exMark = "?excerpt?",
+            contentPos = iContent.indexOf( exMark ),
+            st = iContent.slice( 0, contentPos ),
+            pattern = /\<[^\>]+\>/g,
+            et;
+        if ( isExcerpt ) {
+            if ( contentPos < 0 ) {
+                return iContent.replace( pattern, "" ).substring(0,200);
+            };
+            return st.replace( pattern, "" );
+        } else {
+            if ( contentPos < 0 ) {
+                return iContent;
+            };
+        };
+        et = iContent.slice( contentPos + exMark.length, iContent.length );
+        return st + et;
+    };
+%>
+
+<% if ( index ) { %>
+    <article class="article article-summary">
+        <div class="article-summary-inner">
+            <%- partial('post/thumbnail') %>
+            <h2 class="article-title">
+                <a href="<%- url_for((post.link?post.link:post.path)) %>" class="title"><%= post.title %></a>
+            </h2>
+            <p class="article-excerpt">
+                <%= getContentOrExcerpt( post.content, true ) %>
+            </p>
+             <div class="article-meta">
+                <% if ( post.categories.length ) { %>
+                    <p class="category">Category: <%- list_categories(post.categories, {show_count: false, depth:2, class: 'article-category', style: 'none', separator: '<i class="icon fa fa-angle-right"></i>'}) %>
+                    </p>
+                <% }; %>
+
+                <p class="date">
+                    DATE: <time datetime="<%= date(post.date) %>" itemprop="datePublished"><%= date(post.date) %></time>
+                </p>
+                <p class="author">
+                    <% if ( post.authorName ) { %>
+                        Author:
+                        <% if ( post.authorLink ) { %>
+                            <a href="<%- url_for( post.authorLink ) %>"> <%= post.authorName %> </a>
+                        <% } else { %>
+                            <%= post.authorName %>
+                        <% }; %>
+                    <% }; %>
+                </p>
+                <% if ( theme.excerpt_link ) { %>
+                    <p class="read-more">
+                        <a href="<%- url_for((post.link?post.link:post.path)) %>"> <%= theme.excerpt_link %> </a>
+                    </p>
+                <% }; %>
+            </div>
+        </div>
+    </article>
+<% } else { %>
+    <article id="<%= post.layout %>-<%= post.slug %>" class="article article-single article-type-<%= post.layout %>" itemscope itemprop="blogPost">
+        <div class="article-inner">
+            <% if ( post.link || post.title ) { %>
+                <header class="article-header">
+                    <%- partial('post/title', {class_name: 'article-title'}) %>
+                </header>
+            <% }; %>
+            <p class="article-byline">
+                <%- partial('post/date', {class_name: 'article-date', date_format: null}) %>
+            </p>
+            <div class="article-entry" itemprop="articleBody">
+                <%- getContentOrExcerpt( post.content, false ) %>
+            </div>
+
+            <% if ( !post.authorPage ) { %>
+                <footer class="article-footer">
+                    <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" class="article-share-link"><%=__('article.share')%></a>
+                    <% if ( post.comments && config.disqus_shortname ) { %>
+                        <a href="<%- post.permalink %>#comments" class="article-comment-link"><%=__('article.comments')%></a>
+                    <% }; %>
+                    <%- partial('post/tag') %>
+                    <br><br><br><br>
+                    <% if ( post.authorName && post.authorEmail ) { %>
+                        <article class="author-block">
+                            <div class="thumbnail" style="float: left;">
+                                <img src="<%- gravatar( post.authorEmail, 50) %>" alt="<%= post.authorName %>">
+                            </div>
+                            <div class="author-description">
+                                <span><%= post.authorName %></span>
+                                <br>
+                                <% if ( post.authorLink ) { %>
+                                    <a href="<%= post.authorLink %>">read more about the author</a>
+                                <% }; %>
+                            </div>
+                            <div class="author-follow">
+                                <p><%= __('sidebar.follow') %>:</p>
+                                <ul class="social-links">
+                                    <% var social_links = post.social_links || theme.social_links; %>
+                                    <% for (var i in social_links ) { %>
+                                        <li>
+                                            <a class="social-tooltip" target="_blank" title="<%= i %>" href="<%- url_for(social_links[i]) %>">
+                                                <i class="icon fa fa-<%= i %>"></i>
+                                            </a>
+                                        </li>
+                                    <% }; %>
+                                </ul>
+                            </div>
+
+                        </article>
+                    <% }; %>
+                    <br>
+                </footer>
+            <% }; %>
+        </div>
+    </article>
+    <% if ( post.comments && config.disqus_shortname && !post.authorPage ) { %>
+        <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+        </section>
+    <% }; %>
+<% } %>
